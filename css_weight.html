@@ -23,7 +23,8 @@
                 "*",
                 ".class .class",
                 "p div.myclass",
-                "span.class#id"
+                "span.class#id",
+                "span.class#id2"
             ];
             
             function sortSelector(selectors) {
@@ -34,7 +35,9 @@
                     (selector.match(/\w+/g) || []).length - idSel - classSel, // anything else                
                 ];
 
-                const selectorsToSort = selectors.map(el => [(e=evaluateSelector(el))[0],""+e[1]+e[2]+e[3]]);
+                const selectorsToSort = selectors.map(el => [(e=evaluateSelector(el))[0],""+e[1]+e[2]+e[3]])
+                    .sort((a,b) => a[1] < b[1])
+                    .map(e => e[0]);
                 return selectorsToSort;
             }
 
