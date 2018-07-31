@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -34,9 +34,10 @@
                     (selector.match(/\w+/g) || []).length - idSel - classSel, // anything else                
                 ];
 
-                let selectorsToSort = selectors.map(e => evaluateSelector(e));
+                const selectorsToSort = selectors.map(el => [(e=evaluateSelector(el))[0],""+e[1]+e[2]+e[3]]);
                 return selectorsToSort;
             }
+
             console.log(sortSelector(cssSelectors));
         </script>
     </body>
